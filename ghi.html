@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proxy Workout - Your AI does the work</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.161.0/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" data-page="dashboard"><span class="brand-mark">✦</span><span>PROXY<br><b>WORKOUT</b></span></a>
+      <div class="side-label">Workspace</div>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span>Dashboard</button>
+        <button class="nav-item" data-page="workout"><span>◒</span>Workout <em class="live-dot"></em></button>
+        <button class="nav-item" data-page="profile"><span>◉</span>Profile</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="ai-mini">
+          <div class="mini-avatar">◒</div><div><strong>Proxy online</strong><small>Ready to suffer</small></div><span class="status-dot"></span>
+        </div>
+        <button class="theme-toggle" id="themeToggle"><span>☼</span><span>Light mode</span><b>☾</b></button>
+        <div class="version">v1.0.4 · Fictional fitness OS</div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><div class="mobile-brand">✦ PROXY</div><div class="breadcrumb">PROXY WORKOUT <span>/</span> <strong id="pageTitle">DASHBOARD</strong></div><div class="top-actions"><button class="icon-btn" title="Notifications">♧<i></i></button><button class="user-chip" id="userChip"><span class="user-initial">J</span><span id="topName">Jordan</span><span>⌄</span></button></div></header>
+
+      <section class="page active" id="dashboard">
+        <div class="page-heading"><div><p class="eyebrow">FRIDAY, SEPTEMBER 11, 2026</p><h1>Good evening, <span id="greetingName">Jordan</span><span class="wave">✦</span></h1><p class="muted">Your proxy is warmed up. Your muscles remain completely uninvolved.</p></div><button class="primary-btn" id="createWorkout"><span>＋</span> Create workout</button></div>
+        <div class="stat-grid">
+          <article class="stat-card score-card"><div class="stat-head"><span>Proxy fitness score</span><span class="trend">↗ 12.4%</span></div><div class="score-row"><strong id="scoreValue">742</strong><span>/ 1000</span><div class="score-ring"><svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="15.5"></circle><circle class="ring-progress" cx="21" cy="21" r="15.5"></circle></svg><b>74%</b></div></div><small>Fictional score · Extremely legitimate</small></article>
+          <article class="stat-card"><div class="stat-head"><span>Current streak</span><span class="stat-icon orange">✦</span></div><div class="big-stat"><strong id="streakValue">12</strong><span>days</span></div><div class="tiny-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i class="today"></i></div><small>Most impressive to your AI</small></article>
+          <article class="stat-card"><div class="stat-head"><span>Proxy calories</span><span class="stat-icon pink">◌</span></div><div class="big-stat"><strong id="calorieValue">2,840</strong><span>kcal</span></div><div class="progress-line"><i style="width:68%"></i></div><small>Your AI burned them. Obviously.</small></article>
+          <article class="stat-card"><div class="stat-head"><span>Level</span><span class="stat-icon blue">↗</span></div><div class="big-stat"><strong id="levelValue">08</strong><span>Operator</span></div><div class="progress-line blue-line"><i id="xpProgress" style="width:64%"></i></div><small><b id="xpValue">1,280</b> / 2,000 XP to level 9</small></article>
+        </div>
+        <div class="dashboard-grid">
+          <article class="panel goal-panel"><div class="panel-title"><div><span class="section-kicker">TODAY'S DIRECTIVE</span><h2>Make your AI regret being created.</h2></div><span class="goal-badge">+120 XP</span></div><div class="goal-progress"><div class="goal-icon">✦</div><div class="goal-track"><div><strong>Cause 70% fatigue</strong><span id="goalPercent">0 / 70%</span></div><div class="progress-line"><i id="goalBar"></i></div></div></div><button class="text-btn" id="goalStart">Start today's workout <span>→</span></button></article>
+          <article class="panel recent-panel"><div class="panel-title"><div><span class="section-kicker">LATEST PROXY SESSION</span><h2>Yesterday's damage</h2></div><button class="more-btn">•••</button></div><div class="recent-exercise"><div class="exercise-icon">◒</div><div><strong>Lower body protocol</strong><small>Squats · Lunges · Wall sit</small></div><span class="recent-time">18:42</span></div><div class="recent-meta"><span><b>89%</b> peak fatigue</span><span><b>+180</b> XP earned</span><span class="memory">“I haven't emotionally recovered.”</span></div></article>
+        </div>
+        <div class="lower-grid"><section><div class="section-header"><div><span class="section-kicker">EXERCISE MASTERY</span><h2>How your proxy is progressing</h2></div><button class="text-btn" data-page="profile">View all <span>→</span></button></div><div class="mastery-list" id="masteryList"></div></section><section><div class="section-header"><div><span class="section-kicker">CURATED PROTOCOLS</span><h2>Pick your poison</h2></div></div><div class="playlist-list" id="playlistList"></div></section></div>
+      </section>
+
+      <section class="page" id="workout">
+        <div class="workout-heading"><div><p class="eyebrow">LIVE PROXY SESSION <span class="live-pill"><i></i> LIVE</span></p><h1 id="workoutTitle">Ready to do nothing?</h1><p class="muted" id="workoutSubtitle">Select a protocol and let your AI handle the hard part.</p></div><div class="workout-actions"><button class="secondary-btn" id="pauseBtn">Ⅱ Pause</button><button class="danger-btn" id="endBtn">End session</button></div></div>
+        <div class="workout-layout">
+          <article class="avatar-stage panel"><div class="stage-top"><span class="stage-tag" id="exerciseLabel">IDLE / AWAITING ORDERS</span><span class="stage-count" id="setLabel">SET 0 / 3</span></div><div id="avatarCanvas"></div><div class="animation-status" id="animationStatus" hidden></div><div class="animation-debugger" id="animationDebugger" aria-label="Animation debugger"></div><div class="speech-bubble" id="speechBubble">“I was promised a desk job.”</div><div class="stage-bottom"><div class="avatar-state"><span class="state-pulse"></span><span id="avatarState">AI is pretending to stretch</span></div><div class="stage-controls"><button id="rotateLeft">↶</button><button id="rotateRight">↷</button></div></div></article>
+          <aside class="workout-side"><div class="panel telemetry"><div class="panel-title"><div><span class="section-kicker">AI TELEMETRY</span><h2>Internal damage</h2></div><span class="telemetry-live">● tracking</span></div><div class="meter-list"><div class="meter"><div><span>Energy</span><b id="energyVal">100</b></div><div class="meter-track"><i id="energyBar" class="green" style="width:100%"></i></div></div><div class="meter"><div><span>Fatigue</span><b id="fatigueVal">0</b></div><div class="meter-track"><i id="fatigueBar" class="orange-bar"></i></div></div><div class="meter"><div><span>Stress</span><b id="stressVal">5</b></div><div class="meter-track"><i id="stressBar" class="pink-bar" style="width:5%"></i></div></div><div class="meter"><div><span>Performance</span><b id="performanceVal">100</b></div><div class="meter-track"><i id="performanceBar" class="blue-bar" style="width:100%"></i></div></div></div><div class="hidden-insight" id="hiddenInsight">◎ <span>Psychological metrics are hidden until the AI gets interesting.</span></div><div class="psych-meters" id="psychMeters"><div><span>Mood</span><b id="moodVal">Focused</b></div><div><span>Motivation</span><b id="motivationVal">100%</b></div></div></div><div class="panel exercise-control"><div class="control-header"><span class="section-kicker">CURRENT PROTOCOL</span><strong id="currentExercise">Squats</strong></div><div class="rep-display"><span id="repCurrent">0</span><small id="repTarget">/ 12 reps</small></div><div class="control-actions"><button class="secondary-btn" id="skipBtn">Skip set</button><button class="primary-btn" id="startBtn">Start proxy <span>→</span></button></div><div class="rest-setting"><span>Rest between sets</span><select id="restSelect"><option value="12">12 seconds</option><option value="20">20 seconds</option><option value="30">30 seconds</option></select></div></div></aside>
+        </div>
+      </section>
+
+      <section class="page" id="profile">
+        <div class="page-heading"><div><p class="eyebrow">OPERATOR PROFILE</p><h1 id="profileHeading">Jordan's command center</h1><p class="muted">The human behind the proxy. No physical exertion detected.</p></div><button class="secondary-btn" id="editProfile">Edit profile</button></div>
+        <div class="profile-hero panel"><div class="profile-avatar">J<span class="online"></span></div><div class="profile-copy"><span class="section-kicker">PROXY OPERATOR · LEVEL 08</span><h2 id="profileName">Jordan</h2><p id="profileGoal">Goal: Maintain · Since Jan 2026</p><div class="profile-xp"><span>1,280 XP</span><div class="progress-line"><i style="width:64%"></i></div><span>2,000 XP</span></div></div><div class="profile-stats"><div><strong>12</strong><span>streak</span></div><div><strong>27</strong><span>workouts</span></div><div><strong>742</strong><span>score</span></div></div></div>
+        <div class="profile-grid"><article class="panel achievements"><div class="section-header"><div><span class="section-kicker">ACHIEVEMENTS</span><h2>Badges of questionable honor</h2></div><span class="count-badge">3 / 8</span></div><div class="badge-grid"><div class="badge unlocked"><span>⚡</span><strong>FIRST REP</strong><small>Complete your first proxy</small></div><div class="badge unlocked"><span>🔥</span><strong>AI ABUSE</strong><small>Reach 90% fatigue</small></div><div class="badge unlocked"><span>☕</span><strong>PROCRASTINATOR</strong><small>Trigger Lazy Mode 5 times</small></div><div class="badge locked"><span>?</span><strong>EMOTIONAL DAMAGE</strong><small>Reach high stress</small></div></div></article><article class="panel history"><div class="section-header"><div><span class="section-kicker">WORKOUT HISTORY</span><h2>Recent sessions</h2></div><button class="text-btn">See all <span>→</span></button></div><div id="historyList"></div></article></div>
+      </section>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="workoutModal"><div class="modal"><button class="modal-close" data-close>×</button><span class="section-kicker">NEW PROXY PROTOCOL</span><h2>How should your AI suffer?</h2><p class="muted">Choose a playlist or configure one exercise manually.</p><div class="quick-exercises"><button class="quick-exercise selected" data-exercise="Jumping jacks"><span>🏃</span><strong>Jumping Jacks</strong><small>Cardio protocol</small></button><button class="quick-exercise" data-exercise="Squats"><span>🪑</span><strong>Squats</strong><small>Lower body protocol</small></button><button class="quick-exercise" data-exercise="Sit-ups"><span>💪</span><strong>Sit-Ups</strong><small>Core protocol</small></button></div><div class="playlist-picker" id="modalPlaylists"></div><div class="manual-config"><label>Exercise<select id="manualExercise"><option>Jumping jacks</option><option>Squats</option><option>Push-ups</option><option>Lunges</option><option>Sit-ups</option><option>Plank</option><option>High knees</option><option>Mountain climbers</option></select></label><label>Sets<input id="manualSets" type="number" min="1" max="10" value="3"></label><label>Reps<input id="manualReps" type="number" min="1" max="100" value="12"></label></div><button class="primary-btn full-btn" id="launchWorkout">Launch manual workout <span>→</span></button></div></div>
+  <div class="toast" id="toast"></div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
